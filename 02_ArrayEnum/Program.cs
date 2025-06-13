@@ -115,6 +115,8 @@ namespace _02_ArrayEnum
             Console.WriteLine($"Array B\nMin: {min}, Max: {max}, Sum: {sum}, Multy: {multy}, Multy of odd columns: {OddMulty}");
             //4
             int[,] C = new int[5, 5];
+            int minC = 0;
+            int maxC = 0;
             for (int i = 0; i < C.GetLength(0); i++)
             {
                 for (int j = 0; j < C.GetLength(1); j++)
@@ -123,7 +125,67 @@ namespace _02_ArrayEnum
                     Console.Write(C[i, j] + " ");
                 }
                 Console.WriteLine();
-            }   
+            }
+            minC = C[0, 0];
+            maxC = C[0, 0];
+            for (int i = 0; i < C.GetLength(0); i++)
+            {
+                for (int j = 0; j < C.GetLength(1); j++)
+                {
+                    if (C[i, j] < minC) minC = C[i, j];
+                    if (C[i, j] > maxC) maxC = C[i, j];
+                }
+            }
+            int minIndex = 0;
+            int maxIndex = 0;
+            for (int i = 0; i < C.GetLength(0); i++)
+            {
+                for (int j = 0; j < C.GetLength(1); j++)
+                {
+                    if (C[i, j] == minC)
+                    {
+                        minIndex = i;
+                    }
+                    if (C[i, j] == maxC)
+                    {
+                        maxIndex = i;
+                    }
+                }
+            }
+            int summury = 0;
+            for (int i = minIndex; i < maxIndex; i++)
+            {
+                for (int j = 0; j < C.GetLength(1); j++)
+                {
+                    summury += C[i, j];
+                }
+            }
+            Console.WriteLine($"Array C\nMin: {minC}, Max: {maxC}, Sum of elements between min and max: {summury}");
+            //5
+            int[] D = new int[10];
+            int minD = 0;
+            int countD = 0;
+            for (int i = 0; i < D.Length; i++)
+            {
+                D[i] = random.Next(-100, 100);
+                Console.Write(D[i] + " ");
+            }
+            minD = D[0];
+            for (int i = 0; i < D.Length; i++)
+            {
+                if (D[i] < minD)
+                {
+                    minD = D[i];
+                }
+            }
+            foreach (int i in D)
+            {
+                if (D[i] == minD+5)
+                {
+                    count += 1;
+                }
+            }
+            Console.WriteLine($"Array D\nAmount of elements equal to min + 5: {countD}");
 
 
 
