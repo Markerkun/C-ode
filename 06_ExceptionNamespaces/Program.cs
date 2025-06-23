@@ -175,6 +175,40 @@ namespace _06_ExceptionNamespaces
 
 
             //3
+            Console.WriteLine("Enter mathematical expression(multyplay)");
+            string input = Console.ReadLine();
+            string[] parts = input.Split('*');
+            if (input.Length < 3)
+            { Console.WriteLine("Invalid input. Please enter a valid multiplication expression in the format 'a * b...'."); }
+
+
+            else
+            {
+                try
+                {
+                    int result = 1;
+                    foreach (string part in parts)
+                    {
+                         result *= int.Parse(part.Trim());
+                    }
+                     
+                    Console.WriteLine($"Result: {result}");
+                }
+                catch (OverflowException)
+                {
+                    Console.WriteLine("Overflow occurred during multiplication.");
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Invalid input format. Please enter valid integers.");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"An unexpected error occurred: {ex.Message}");
+                }
+            }
+
+
         }
     }
 }
