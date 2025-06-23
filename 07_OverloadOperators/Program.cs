@@ -110,6 +110,10 @@ namespace _07_OverloadOperators
         {
             return new Square((r.A + r.B) / 2);
         }
+        public static explicit operator int(Rectangle r)
+        {
+            return (r.A + r.B) / 2;
+        }
     }
 
     public class Square
@@ -263,12 +267,13 @@ namespace _07_OverloadOperators
             Console.WriteLine("\nImplicit Conversion from Square to Rectangle:");
             Rectangle rFromS = s1;
             Console.WriteLine($"Converted Rectangle from Square: {rFromS}");
+            int rectangleValue = (int)rFromS;
             Console.WriteLine("\nExplicit Conversion from Rectangle to Square:");
             Square sFromR = (Square)r1;
             Console.WriteLine($"Converted Square from Rectangle: {sFromR}");
             Console.WriteLine("\nImplicit Conversion from Square to int:");
             int sideValue = s1;
-            Console.WriteLine($"Square side as int: {sideValue}");
+
             
 
         }
