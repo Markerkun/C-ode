@@ -1,6 +1,7 @@
 ﻿namespace _05_StructRefOut
 
 {
+    //1
     class Worker
     {
         public string Surname { get; set; }
@@ -40,13 +41,34 @@
 
     }
 
-
-
+    //2
+    class Calculator
+    {
+        public static void Add(int a, int b, out int result)
+        {
+            result = a + b;
+        }
+        public static void Sub(int a, int b, out int result)
+        {
+            result = a - b;
+        }
+        public static void Mul(int a, int b, out int result)
+        {
+            result = a * b;
+        }
+        public static void Div(int a, int b, out double result)
+        {
+            if (b == 0)
+                throw new DivideByZeroException("Cannot divide by zero.");
+            result = (double)a / b;
+        }
+    }
 
     internal class Program
     {
         static void Main(string[] args)
         {
+            //1
             Worker[] workers = new Worker[5];
 
             for (int i = 0; i < workers.Length; i++)
@@ -68,7 +90,35 @@
                 i.Print();
             }
 
-
+            //2
+            int a, b, resultInt;
+            double resultDouble;
+            Console.Write("Enter first number: ");
+            a = int.Parse(Console.ReadLine());
+            Console.Write("Enter second number: ");
+            b = int.Parse(Console.ReadLine());
+            try
+            {
+                Calculator.Add(a, b, out resultInt);
+                Console.WriteLine($"Addition result: {resultInt}");
+                
+                Calculator.Sub(a, b, out resultInt);
+                Console.WriteLine($"Subtraction result: {resultInt}");
+                
+                Calculator.Mul(a, b, out resultInt);
+                Console.WriteLine($"Multiplication result: {resultInt}");
+                
+                Calculator.Div(a, b, out resultDouble);
+                Console.WriteLine($"Division result: {resultDouble}");
+            }
+            catch (DivideByZeroException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }
