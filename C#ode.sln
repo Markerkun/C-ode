@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05_StructRefOut", "05_Struc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06_ExceptionNamespaces", "06_ExceptionNamespaces\06_ExceptionNamespaces.csproj", "{EE2C3048-6DE7-4487-963F-A37E244B94C9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07_OverloadOperators", "07_OverloadOperators\07_OverloadOperators.csproj", "{D4568848-5814-4AB3-B468-0E2EE68E95D9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{EE2C3048-6DE7-4487-963F-A37E244B94C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE2C3048-6DE7-4487-963F-A37E244B94C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE2C3048-6DE7-4487-963F-A37E244B94C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4568848-5814-4AB3-B468-0E2EE68E95D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4568848-5814-4AB3-B468-0E2EE68E95D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4568848-5814-4AB3-B468-0E2EE68E95D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4568848-5814-4AB3-B468-0E2EE68E95D9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
