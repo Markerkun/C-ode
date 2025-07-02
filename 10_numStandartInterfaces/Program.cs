@@ -12,7 +12,7 @@ namespace _10_numStandartInterfaces
         SciFi
     }
 
-    class Cinema : IEnumerable<genres>
+    class Cinema : IEnumerable
     {
         Movie[] movies;
         string address;
@@ -36,7 +36,7 @@ namespace _10_numStandartInterfaces
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return GetEnumerator();
+            return movies.GetEnumerator();
         }
         public string ToString()
         {
