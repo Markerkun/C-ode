@@ -70,6 +70,25 @@
         {
             Array.Sort(array);
         }
+        public void SortByEvenly(int[] array)
+        {
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (array[i]%2!=0)
+                {
+                    for (int j = i + 1; j < array.Length; j++)
+                    {
+                        if (array[j] % 2 == 0)
+                        {
+                            int temp = array[i];
+                            array[i] = array[j];
+                            array[j] = temp;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
 
     };
     public delegate void MenuDelegate(int[] arr);
@@ -115,14 +134,17 @@
             ChangeArray changeArray = new ChangeArray();
             VoidDelegate ChangeToZero = changeArray.ChangeToZero;
             VoidDelegate SortArray = changeArray.SortArray;
+            VoidDelegate SortByEvenly = changeArray.SortByEvenly;
             VoidDelegate[] voidDelegates =
             [
                 ChangeToZero,
-                SortArray
+                SortArray,
+                SortByEvenly
             ];
             Console.WriteLine("Write a num (0-1)");
             Console.WriteLine("0 - Change negative numbers to zero");
             Console.WriteLine("1 - Sort array");
+            Console.WriteLine("2 - Sort array by even numbers");
             int user2 = int.Parse(Console.ReadLine());
             try
             {
