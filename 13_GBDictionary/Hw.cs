@@ -27,9 +27,9 @@ namespace _13_HwDictionary
                 }
             }
             Console.WriteLine("Слово - Кількість входжень");
-            foreach (KeyValuePair<string, int> word in wordCount)
+            foreach(KeyValuePair<string, int> word in wordCount )
             {
-                Console.WriteLine($"Key : {word.Key,20} Value : {word.Value,50}");
+                    Console.WriteLine($"Key : {word.Key,10}\t Value : {word.Value,10}");
             }
         }
     }
