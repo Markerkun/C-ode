@@ -1,6 +1,7 @@
 ﻿namespace _14_Generic
 {
    
+    IDisposable
     internal class Program
     {
         static public void Max<T1>(T1 t1, T1 t2, T1 t3) where T1 : IComparable
