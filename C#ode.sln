@@ -38,6 +38,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "15_Stream", "15_Stream\15_S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "16_SerializerAtributes", "16_SerializerAtributes\16_SerializerAtributes.csproj", "{00FB9BA8-664F-4F98-A8FD-5E81CCD09FF4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "16_Regex", "16_Regex\16_Regex.csproj", "{59538110-BABE-48E9-8BD3-75F95FF7E05B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -104,6 +106,10 @@ Global
 		{00FB9BA8-664F-4F98-A8FD-5E81CCD09FF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{00FB9BA8-664F-4F98-A8FD-5E81CCD09FF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{00FB9BA8-664F-4F98-A8FD-5E81CCD09FF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59538110-BABE-48E9-8BD3-75F95FF7E05B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59538110-BABE-48E9-8BD3-75F95FF7E05B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59538110-BABE-48E9-8BD3-75F95FF7E05B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59538110-BABE-48E9-8BD3-75F95FF7E05B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
