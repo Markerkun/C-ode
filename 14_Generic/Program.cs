@@ -1,7 +1,6 @@
 ﻿namespace _14_Generic
 {
-   
-    IDisposable
+    
     internal class Program
     {
         static public void Max<T1>(T1 t1, T1 t2, T1 t3) where T1 : IComparable
@@ -147,9 +146,9 @@
                 }
                 return items[top--];
             }
-            public int Count
+            public int Count()
             {
-                get { return top + 1; }
+                return top + 1;
             }
             public T peek()
             {
@@ -158,6 +157,53 @@
                     throw new InvalidOperationException("Stack is empty");
                 }
                 return items[top];
+            }
+        }
+        class Queue<T>
+        {
+            private T[] items;
+            private int front;
+            private int rear;
+            private int count;
+            public Queue(int size)
+            {
+                items = new T[size];
+                front = 0;
+                rear = -1;
+                count = 0;
+            }
+            public void Enqueue(T item)
+            {
+                if (count == items.Length)
+                {
+                    throw new InvalidOperationException("Queue overflow");
+                }
+                rear = (rear + 1) % items.Length;
+                items[rear] = item;
+                count++;
+            }
+            public T Dequeue()
+            {
+                if (count == 0)
+                {
+                    throw new InvalidOperationException("Queue underflow");
+                }
+                T item = items[front];
+                front = (front + 1) % items.Length;
+                count--;
+                return item;
+            }
+            public int Count()
+            {
+                return count;
+            }
+            public T Peek()
+            {
+                if (count == 0)
+                {
+                    throw new InvalidOperationException("Queue is empty");
+                }
+                return items[front];
             }
         }
 
