@@ -11,7 +11,7 @@
             Console.WriteLine("Enter your email: ");
             email = Console.ReadLine();
             string emailpattern = @"^[\w\-\.]{4,}\@\w{2,}\.(com)$";
-            string passwordpattern = @"^[\w\-]{6,}$";
+            string passwordpattern = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[-_])[a-zA-Z\d-_]{6,}$";
 
         }
     }

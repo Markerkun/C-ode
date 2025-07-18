@@ -35,6 +35,17 @@ namespace _15_Stream
                 }
             }
         }
+        public static void AppendToFile<T>(string fileName, T content)
+        {
+            if (!File.Exists(fileName))
+            {
+                Console.WriteLine($"File {fileName} not found, creating a new file.");
+            }
+            using (StreamWriter stream = new StreamWriter(fileName, true))
+            {
+                stream.WriteLine(content);
+            }
+        }
         public static void ReadToArray<T>(string fileName, T[] arr)
         {
             if (!File.Exists(fileName))
@@ -67,7 +78,60 @@ namespace _15_Stream
             {
                 Console.WriteLine($"File {fileName} does not exist.");
             }
-        }   
+        }
+
+
+
+        public static void FindWordInFile(string fileName, string word)
+        {
+            if (!File.Exists(fileName))
+            {
+                Console.WriteLine($"File {fileName} not found");
+                return;
+            }
+            using (StreamReader stream = new StreamReader(fileName))
+            {
+                int counter = 0;
+                int lineNumber = 0;
+                while (!stream.EndOfStream)
+                {
+                    lineNumber++;
+                    string line = stream.ReadLine();
+                    if (line != null && line.Contains(word))
+                    {
+                        Console.WriteLine($"Found '{word}' in line {lineNumber}: {line}");
+                    }
+                    counter++;
+                }
+            }
+        }
+        public static void FindRWordInFile(string fileName, string word)
+        {
+            if (!File.Exists(fileName))
+            {
+                Console.WriteLine($"File {fileName} not found");
+                return;
+            }
+            using (StreamReader stream = new StreamReader(fileName))
+            {
+                char[] chars = word.ToCharArray();
+                Array.Reverse(chars);
+                string Rword = new string(chars);
+
+                int counter = 0;
+                int lineNumber = 0;
+                while (!stream.EndOfStream)
+                {
+                    lineNumber++;
+                    string line = stream.ReadLine();
+                    if (line != null && line.Contains(Rword))
+                    {
+                        Console.WriteLine($"Found '{Rword}' in line {lineNumber}: {line}");
+                    }
+                    counter++;
+                }
+            }
+        }
 
 
 
@@ -76,18 +140,56 @@ namespace _15_Stream
 
         static void Main(string[] args)
         {
-            int[] arr = new int[10];
-            int[]pureArr = new int[10];
+            //int[] arr = new int[10];
+            //int[]pureArr = new int[10];
 
-            for (int i = 0; i < arr.Length; i++)
-            {
-                Console.Write($"Enter element {i + 1}: ");
-                arr[i] = int.Parse(Console.ReadLine());
-            }
-            WriteFile<int>("arr.txt", arr);
-            ReadFile("arr.txt");
-            ReadToArray<int>("arr.txt", pureArr);
-            DeleteFile("arr.txt");
+            //for (int i = 0; i < arr.Length; i++)
+            //{
+            //    Console.Write($"Enter element {i + 1}: ");
+            //    arr[i] = int.Parse(Console.ReadLine());
+            //}
+            //WriteFile<int>("arr.txt", arr);
+            //ReadFile("arr.txt");
+            //ReadToArray<int>("arr.txt", pureArr);
+            //DeleteFile("arr.txt");
+
+
+
+
+            //Random random = new Random();
+
+            //for (int i = 0; i < 1001; i++)
+            //{
+            //    int number = random.Next(1, 1001);
+            //    if (number % 2 == 0)
+            //    {
+            //        AppendToFile<int>("even.txt", number);
+            //    }
+            //    else
+            //    {
+            //        AppendToFile<int>("odd.txt",  number );
+            //    }
+            //}
+            
+
+            string[] array = new string[4];
+            array[0] = "Moon";
+            array[1] = "moon";
+            array[2] = "moon";
+            array[3] = "Noom";
+            array[4] = "noom";
+
+            WriteFile<string>("words.txt", array);
+            ReadFile("words.txt");
+            FindWordInFile("words.txt", "moon");
+            FindRWordInFile("words.txt", "moon");
+
+
+
+
+
+
+
         }
     }
 }
