@@ -40,6 +40,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "16_SerializerAtributes", "1
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "17_Regex", "17_Regex\17_Regex.csproj", "{5D5412A6-8F94-47FC-9A5D-F94C5AF32485}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "18_LINQ", "18_LINQ\18_LINQ.csproj", "{69CD3F68-CE19-45E5-8902-B13CCF0B8DC7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -110,6 +112,10 @@ Global
 		{5D5412A6-8F94-47FC-9A5D-F94C5AF32485}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D5412A6-8F94-47FC-9A5D-F94C5AF32485}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D5412A6-8F94-47FC-9A5D-F94C5AF32485}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69CD3F68-CE19-45E5-8902-B13CCF0B8DC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69CD3F68-CE19-45E5-8902-B13CCF0B8DC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69CD3F68-CE19-45E5-8902-B13CCF0B8DC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69CD3F68-CE19-45E5-8902-B13CCF0B8DC7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
