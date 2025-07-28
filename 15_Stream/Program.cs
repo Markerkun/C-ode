@@ -133,7 +133,50 @@ namespace _15_Stream
             }
         }
 
-
+        public static void StisticFile(string fileName)
+        {
+            if (!File.Exists(fileName))
+            {
+                Console.WriteLine($"File {fileName} not found");
+                return;
+            }
+            FileInfo fileInfo = new FileInfo(fileName);
+            int sentences = 0, capital_letters = 0, lowercase_letters = 0, vowels = 0, consonants = 0, numbers = 0;
+            for (int i = 0; i < sentences; i++) {
+                if (char.IsUpper(fileName[i]))
+                {
+                    capital_letters++;
+                }
+                else if (char.IsLower(fileName[i]))
+                {
+                    lowercase_letters++;
+                }
+                else if (char.IsDigit(fileName[i]))
+                {
+                    numbers++;
+                }
+                else if ("aeiouAEIOU".Contains(fileName[i]))
+                {
+                    vowels++;
+                }
+                else if ("qwrtpsdfghjklzxcvbnmQWRTPSDFGHJKLZXCVBNM".Contains(fileName[i]))
+                {
+                    consonants++;
+                }
+                else if (fileName[i]=='.')
+                {
+                    sentences++;
+                }
+            }
+            Console.WriteLine($"File: {fileName}");
+            Console.WriteLine($"Size: {fileInfo.Length} bytes");
+            Console.WriteLine($"Sentences: {sentences}");
+            Console.WriteLine($"Capital Letters: {capital_letters}");
+            Console.WriteLine($"Lowercase Letters: {lowercase_letters}");
+            Console.WriteLine($"Vowels: {vowels}");
+            Console.WriteLine($"Consonants: {consonants}");
+            Console.WriteLine($"Numbers: {numbers}");
+        }
 
 
 
@@ -171,7 +214,7 @@ namespace _15_Stream
             //    }
             //}
             
-
+                
             string[] array = new string[4];
             array[0] = "Moon";
             array[1] = "moon";
