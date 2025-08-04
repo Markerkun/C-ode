@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Runtime.CompilerServices;
 using System.Text.Json;
+using System.Text.RegularExpressions;
 using System.Xml.Serialization;
 
 namespace _16_SerializerAtributes
@@ -22,7 +23,20 @@ namespace _16_SerializerAtributes
         [CreditCard]
         public string CreditCard { get; set; }
         [Phone]
-        public string Phone { get; set; }
+        private string phone;
+
+        public string Phone
+        {
+            get { return phone; }
+            set 
+            { 
+               string phonePattern = @"^\+38-0?\d{2}-\d{3}-\d{2}-\d{2}$";
+               Regex regex = new Regex(phonePattern);
+               if(regex.IsMatch(value))
+                    phone = value;
+            }
+        }
+
 
         public User() {
             Id = 0;
@@ -44,48 +58,7 @@ namespace _16_SerializerAtributes
             Phone = phone;
         }
 
-        public void CreateUser(string filename)
-        {
-            Console.WriteLine("Enter name:");
-            string name = Console.ReadLine()!;
-
-            Console.WriteLine("Enter age");
-            int age = int.Parse(Console.ReadLine()!);
-
-            Console.WriteLine("Enter Login");
-            string login = Console.ReadLine()!;
-
-            Console.WriteLine("Enter password");
-            string password = Console.ReadLine()!;
-
-            Console.WriteLine("Confirm password");
-            string confirmPassword = Console.ReadLine()!;
-
-            Console.WriteLine("Enter email");
-            string email = Console.ReadLine()!;
-
-            Console.WriteLine("Enter credit card");
-            string creditCard = Console.ReadLine()!;
-
-            Console.WriteLine("Enter phone");
-            string phone = Console.ReadLine()!;
-
-
-            Id = 1;
-            Password = password;
-            ConfirmPassword = confirmPassword;
-            Email = email;
-            Phone = phone;
-            CreditCard = creditCard;
-            Login = login;
-
-            if (!(File.Exists(filename)))
-            {
-                
-
-
-            }
-
+        public void 
         }
         public void DisplayUser()
         {
