@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using System.Text.Json;
 
 public abstract class User
@@ -134,10 +135,27 @@ public class Question
 
 class Program
 {
+    static List<UserAccount> LoadUsers()
+    {
+        if (!File.Exists(UsersFile)) return new List<UserAccount>();
+        string json = File.ReadAllText(UsersFile);
+        return JsonSerializer.Deserialize<List<UserAccount>>(json) ?? new List<UserAccount>();
+    }
+
+    static void SaveUsers(List<UserAccount> users)
+    {
+        string json = JsonSerializer.Serialize(users, new JsonSerializerOptions { WriteIndented = true });
+        File.WriteAllText(UsersFile, json);
+    }
+
     private const string UsersFile = "users.json";
 
     static void Main()
     {
+        Console.OutputEncoding = Encoding.UTF8;
+        Console.InputEncoding = Encoding.UTF8;
+
+
         Console.Write("Логін: ");
         string login = Console.ReadLine();
         Console.Write("Пароль: ");
@@ -181,6 +199,7 @@ class Program
         }
         else if (role == "manager")
         {
+
             while (true)
             {
                 Console.WriteLine("\n=== Меню менеджера ===");
@@ -201,16 +220,5 @@ class Program
         }
     }
 
-    static List<UserAccount> LoadUsers()
-    {
-        if (!File.Exists(UsersFile)) return new List<UserAccount>();
-        string json = File.ReadAllText(UsersFile);
-        return JsonSerializer.Deserialize<List<UserAccount>>(json) ?? new List<UserAccount>();
-    }
-
-    static void SaveUsers(List<UserAccount> users)
-    {
-        string json = JsonSerializer.Serialize(users, new JsonSerializerOptions { WriteIndented = true });
-        File.WriteAllText(UsersFile, json);
-    }
+    
 }
