@@ -42,6 +42,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "17_Regex", "17_Regex\17_Reg
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "18_LINQ", "18_LINQ\18_LINQ.csproj", "{69CD3F68-CE19-45E5-8902-B13CCF0B8DC7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinalWork", "FinalWork\FinalWork.csproj", "{D3544BDE-4104-4D9B-8B62-589B4EB9CF8D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -116,6 +118,10 @@ Global
 		{69CD3F68-CE19-45E5-8902-B13CCF0B8DC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69CD3F68-CE19-45E5-8902-B13CCF0B8DC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69CD3F68-CE19-45E5-8902-B13CCF0B8DC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3544BDE-4104-4D9B-8B62-589B4EB9CF8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3544BDE-4104-4D9B-8B62-589B4EB9CF8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3544BDE-4104-4D9B-8B62-589B4EB9CF8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3544BDE-4104-4D9B-8B62-589B4EB9CF8D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
