@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 
-// ===== Абстрактний користувач =====
 public abstract class User
 {
     public string Username { get; set; }
@@ -19,7 +18,6 @@ public abstract class User
     public abstract void PlayQuiz(List<Question> questions);
 }
 
-// ===== Гравець =====
 public class Player : User
 {
     public Player(string username, string password) : base(username, password) { }
@@ -38,17 +36,17 @@ public class Player : User
             {
                 if (ans - 1 == q.CorrectAnswer)
                 {
-                    Console.WriteLine("✅ Правильно!");
+                    Console.WriteLine(" Правильно!");
                     Score++;
                 }
                 else
                 {
-                    Console.WriteLine($"❌ Неправильно! Правильна відповідь: {q.Answers[q.CorrectAnswer]}");
+                    Console.WriteLine($" Неправильно! Правильна відповідь: {q.Answers[q.CorrectAnswer]}");
                 }
             }
             else
             {
-                Console.WriteLine("❌ Ви ввели не число!");
+                Console.WriteLine(" Ви ввели не число!");
             }
             Console.WriteLine();
         }
@@ -57,7 +55,6 @@ public class Player : User
     }
 }
 
-// ===== Менеджер =====
 public class Manager : User
 {
     private const string QuestionsFile = "questions.json";
@@ -103,7 +100,7 @@ public class Manager : User
 
         questions.Add(new Question(text, answers, correct));
         SaveQuestions(questions);
-        Console.WriteLine("✅ Питання додано!");
+        Console.WriteLine(" Питання додано!");
     }
 
     public void ShowQuestions(List<Question> questions)
@@ -113,14 +110,12 @@ public class Manager : User
     }
 }
 
-// ===== Клас користувачів для JSON =====
 public class UserAccount
 {
     public string Username { get; set; }
     public string Password { get; set; }
 }
 
-// ===== Клас питання =====
 public class Question
 {
     public string Text { get; set; }
@@ -137,7 +132,6 @@ public class Question
     }
 }
 
-// ===== Основна програма =====
 class Program
 {
     private const string UsersFile = "users.json";
@@ -157,16 +151,16 @@ class Program
         {
             if (existingUser.Password != password)
             {
-                Console.WriteLine("❌ Невірний пароль!");
+                Console.WriteLine(" Невірний пароль!");
                 return;
             }
-            Console.WriteLine("✅ Авторизація успішна!");
+            Console.WriteLine(" Авторизація успішна!");
         }
         else
         {
             users.Add(new UserAccount { Username = login, Password = password });
             SaveUsers(users);
-            Console.WriteLine("✅ Новий користувач зареєстрований!");
+            Console.WriteLine(" Новий користувач зареєстрований!");
         }
 
         Console.Write("Виберіть роль (player/manager): ");
@@ -180,7 +174,7 @@ class Program
             Player player = new Player(login, password);
             if (questions.Count == 0)
             {
-                Console.WriteLine("❌ Питання ще не додані. Зверніться до менеджера.");
+                Console.WriteLine(" Питання ще не додані. Зверніться до менеджера.");
                 return;
             }
             player.PlayQuiz(questions);
